@@ -1,0 +1,33 @@
+body{
+    background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.container.main{
+    margin-top:7.0em;
+    margin-left:50px;
+}
+i.icon{
+    font-size: 2em;
+}
+img{
+    height:250px;
+    width: 400px;
+}
+
+#mainDivIndex{
+    margin-bottom:120px;
+}
+
+#mainNewDiv{
+    margin-bottom: 100px;
+}
+#goBackBtn{
+    margin-left:60%;
+}
+#showMainDiv{
+    margin-bottom:100px;
+}
+#deleteBtn{
+    margin: 20px 33% ;
+}

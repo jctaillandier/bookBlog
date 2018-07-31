@@ -1,0 +1,42 @@
+<% include ./partials/header %>
+
+<div id='mainNewDiv' class='ui main text container segment'>
+    <div class='ui huge header'> New Book Review </div>
+
+    <form class='ui form' action='/books' method='POST'>
+      
+            <div class="field">
+                <label>Book Title</label>
+                <input required name='book[bTitle]' type="text" placeholder="Title...">
+            </div>
+            <div class="field">
+                <label>Book Author</label>
+                <input required name='book[bAuthor]' type="text" placeholder="Author">
+            </div>
+            <div class="field">
+                <label>Published in </label>
+                <input required name='book[bYear]' type="text" placeholder="Year">
+            </div>
+            <div class="field">
+                <label>Cover page url</label>
+                <input required name='book[bImage]' type="text" placeholder="url">
+            </div>
+            <div class="field">
+                <label>Review </label>
+                <textarea required name='book[content]'placeholder="Review content..."> </textarea>
+            </div>
+            <div class="field">
+                <label> Score </label>
+                <input type="number" name='book[rating]' placeholder="0 is bad, 10 is Amazing" min='0' max='10'>
+            </div>
+            <div class="field">
+                <label> Review by </label>
+                <input required name='book[by]' type="text" placeholder="J-C">
+            </div>
+        <div>
+            <button class='ui big button blue' type='submit'> Submit </button>
+            <a id='goBackBtn' href='/' class='ui small black button'> Go Back </a>
+        <div>
+    </form>
+</div>
+<% include ./partials/footer %>

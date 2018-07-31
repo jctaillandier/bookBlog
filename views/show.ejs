@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<div id='showMainDiv' class='ui main text container segment'>
+    <div class='ui huge header'>
+        <%= book.bTitle %> 
+    </div>
+    <div class='ui top attached'>
+        Written by: <%= book.bAuthor %>, <br> 
+        <%= book.bYear %> <hr>
+    </div>
+    <div class='ui top attached '>
+        <div class='item'>
+            <img class='ui centered small image rounded' src='<%= book.bImage %>'> <br>
+            <div class='content'>
+                <%= book.content %>
+            </div>
+            Rating: <%= book.rating %> / 10
+        </div>
+    </div>
+    <h5> Review made by <%= book.by %> </h5> <hr> <h6> <%= book.created.toDateString() %> </h6>
+    <a class='ui big basic button orange' href='/books/<%=book._id%>/edit'>EDIT POST </a>
+
+
+</div>
+<% include ./partials/footer %>

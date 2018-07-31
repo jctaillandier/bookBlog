@@ -1,0 +1,40 @@
+<% include ./partials/header %>
+
+<div id='mainDivIndex' class='ui container main text'>
+    <div class='ui huge header'>All our reviewed Books!</div>
+        <div class='ui top attached segment'>
+            <div class='ui divided items'>
+                <% books.forEach(function(books){ %>
+                    <div class='item'>
+                        <div class='image'>
+                            <img src='<%= books.image %>'>
+                        </div>
+                        <div class='content'>
+                            <a class='header' href='/books/<%= books.id %>'><%= books.title %></a>
+                            
+                            <p href='/books/<%= books.id %>'>By <%= books.author %></p>
+                                    
+                            <div class='meta'>
+                                <em>Published in <%= books.yearPublished %></em>
+                            </div>
+                            <div class='extra'>
+                                Average Rating:<strong><!--Fetch all scores from Reviews--></strong>
+                            </div>
+                            <div class='description'>
+                                <h5>Reviewed by:</h5>
+                                <!-- Loop through all reviews (need to pass it in route too) -->
+                            </div>
+                            <hr>
+                            <div class='extra'>
+                                <a class='ui floated basic blue button' href='/books/<%= books.id %>'> Read more <i class='right chevron icon'></i></a>
+                            </div>
+                        </div>
+                
+                    
+                    </div>  
+               <% }); %>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer %>

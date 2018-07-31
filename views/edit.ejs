@@ -1,0 +1,50 @@
+<% include ./partials/header %>
+
+<div id='mainNewDiv' class='ui main text container segment'>
+    <div class='ui huge header'> Edit <%= book.bTitle%> </div>
+
+    <form class='ui form' action='/books/<%= book._id %>?_method=PUT' method='POST'>
+      
+            <div class="field">
+                <label>Book Title</label>
+                <input required name='book[bTitle]' type="text" value='<%= book.bTitle %>'>
+            </div>
+            <div class="field">
+                <label>Book Author</label>
+                <input required name='book[bAuthor]' type="text" value='<%= book.bAuthor %>'>
+            </div>
+            <div class="field">
+                <label>Published in </label>
+                <input required name='book[bYear]' type="text" value='<%= book.bYear%>'>
+            </div>
+            <div class="field">
+                <label>Cover page url</label>
+                <input required name='book[bImage]' type="text" value='<%= book.bImage%>'>
+            </div>
+            <div class="field">
+                <label>Review </label>
+                <textarea required name='book[content]'> <%= book.content%> </textarea>
+            </div>
+            <div class="ui field input focus">
+                <label> Score </label>
+                <input type="number"  name='book[rating]' min='0' max='10' value='<%= book.rating%>'>
+            </div>
+            <div class="field">
+                <label> Review by </label>
+                <input required name='book[by]' type="text" value='<%= book.by %>'>
+            </div>
+        <div >
+            <span>
+                <input class='ui big button blue' type='submit'>
+            </span>
+            <span class='right'>
+                <a id='goBackBtn' href='/' class='ui small black button'> Cancel </a>
+            </span>
+        <div>
+    </form>
+</div>
+
+<form id='deleteBtn' action='/books/<%=book._id %>?_method=DELETE' method='POST'>
+    <button class='ui big button red'>Delete Post</button>
+</form>
+<% include ./partials/footer %>
