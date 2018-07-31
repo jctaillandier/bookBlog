@@ -8,6 +8,8 @@ var express = require('express'),
 
 // INDEX route
 router.get('/books', function(req,res){
+    //passing reviewers in index.ejs
+    
     Book.find({}, function(err, books){
         if(err){
             console.log('error loading from DB...')
@@ -16,6 +18,7 @@ router.get('/books', function(req,res){
             res.render('index', {books:books});
         }
     });
+     
 });
 // NEW route
 router.get('/books/new', function(req,res){
@@ -35,6 +38,7 @@ router.post('/books', function(req,res){
 });
 //SHOW route
 router.get('/books/:id', function(req,res){
+    
     Book.findById(req.params.id, function(err, theBook){
         if(err){
             res.redirect('/blogs')
@@ -43,6 +47,7 @@ router.get('/books/:id', function(req,res){
             res.render('show', {book:theBook});
         }
     });
+   
 });
 //EDIT route
 router.get('/books/:id/edit', function(req,res){

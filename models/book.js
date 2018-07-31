@@ -6,12 +6,8 @@ var bookSchema = new mongoose.Schema({
     author: String,
     image: String,
     yearPublish: String,
-    reviewers: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        }
-    ]
+    review: String,
+    score: {type:Number, max:10, min:0}
 });
 
 var Book = mongoose.model('Book', bookSchema);

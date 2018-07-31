@@ -7,8 +7,16 @@ body{
     margin-top:7.0em;
     margin-left:50px;
 }
+#mainHeader{
+    font-size: 65px;
+    text-align: center;
+    color: rgb(228, 228, 228);
+}
 i.icon{
     font-size: 2em;
+}
+.six.wide.column{
+    height:90px;
 }
 img{
     height:250px;
@@ -30,4 +38,7 @@ img{
 }
 #deleteBtn{
     margin: 20px 33% ;
+}
+#imageDiv{
+    margin-top:20px;
 }

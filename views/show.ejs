@@ -1,25 +1,45 @@
 <% include ./partials/header %>
 
 <div id='showMainDiv' class='ui main text container segment'>
-    <div class='ui huge header'>
-        <%= book.bTitle %> 
+    <div class='ui two column grid'>
+        <div class='ui centered huge header column'>
+            <%= book.title %> 
+        </div>
+        <div class='column'>
+            Written by: <%= book.author %> <br> 
+            <em>Published in <%= book.yearPublish %></em>
+        </div>
     </div>
-    <div class='ui top attached'>
-        Written by: <%= book.bAuthor %>, <br> 
-        <%= book.bYear %> <hr>
+
+    <div id='imageDiv' class='ui top attached'>
+                <div class='text-center'>
+                    <img class='ui medium rounded image centered' src="<%=book.image%>">
+                </div>  
+        
     </div>
     <div class='ui top attached '>
         <div class='item'>
             <img class='ui centered small image rounded' src='<%= book.bImage %>'> <br>
-            <div class='content'>
-                <%= book.content %>
+            <div class='ui container content'>
+                    <div class='ui container'>
+                        <p><strong>Post created ...</strong></p> 
+                    </div>
+                    <%= book.review %>
             </div>
-            Rating: <%= book.rating %> / 10
-        </div>
+        </div><br>
+        <p> <strong>
+            Book Score:
+            <% for(var i = 0 ; i < book.score ; i++){%>
+            <i class="star icon"></i>
+            <%}%>
+            <% for(var i = 0 ; i < (10-book.score) ; i++){%>
+                <i class="star outline icon"></i>
+            <%}%>
+        </strong></p>
     </div>
-    <h5> Review made by <%= book.by %> </h5> <hr> <h6> <%= book.created.toDateString() %> </h6>
-    <a class='ui big basic button orange' href='/books/<%=book._id%>/edit'>EDIT POST </a>
-
+    <br><hr><br>
+    <a class='ui blue basic button' href='/books'> Go back </a>
+    <a class='ui blue basic button' href='/books/<%= book._id %>/edit'> Edit </a>
 
 </div>
 <% include ./partials/footer %>

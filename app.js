@@ -14,21 +14,22 @@ app.use(methodOverride('_method'))
 app.use(expressSanitizer())
 
 var Book = require('./models/book');
-var User = require('./models/user')
+var User = require('./models/user');
 
 //require ROUTES
 var index = require('./routes/index'),
-    books = require('./routes/books')
+    books = require('./routes/books');
 
 ///////////////////////////////////////////
- 
 // Book.create({
-//     title: 'Manufacturing Consent',
-//     author: 'Noam Chomsky',
-//     image: 'https://images.gr-assets.com/books/1525166345l/12617.jpg',
-//     yearPublish: '2002',
-//     reviewer:[]
-//  });
+//     title:'Hello World',
+//     author:'Paul George',
+//     image:'',
+//     yearPublish: '2012',
+//     review:'And do I need to state the obvious? I was not here. You put on a long sleeve shirt and cover those track marks on your arm. Count down from twenty, and then you dial. Hang tough, you\'re in the home stretch. Hello, Walter. You\'re never gonna pay \'em off, what\'s the point',
+//     score:8
+// })
+
 
 ////////////////////////////////////
 

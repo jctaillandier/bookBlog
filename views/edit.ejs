@@ -7,31 +7,27 @@
       
             <div class="field">
                 <label>Book Title</label>
-                <input required name='book[bTitle]' type="text" value='<%= book.bTitle %>'>
+                <input required name='book[title]' type="text" value='<%= book.title %>'>
             </div>
             <div class="field">
                 <label>Book Author</label>
-                <input required name='book[bAuthor]' type="text" value='<%= book.bAuthor %>'>
+                <input required name='book[author]' type="text" value='<%= book.author %>'>
             </div>
             <div class="field">
                 <label>Published in </label>
-                <input required name='book[bYear]' type="text" value='<%= book.bYear%>'>
+                <input required name='book[yearPublish]' type="text" value='<%= book.yearPublish%>'>
             </div>
             <div class="field">
                 <label>Cover page url</label>
-                <input required name='book[bImage]' type="text" value='<%= book.bImage%>'>
+                <input required name='book[image]' type="text" value='<%= book.image%>'>
             </div>
             <div class="field">
                 <label>Review </label>
-                <textarea required name='book[content]'> <%= book.content%> </textarea>
+                <textarea required name='book[review]'> <%= book.review%> </textarea>
             </div>
             <div class="ui field input focus">
                 <label> Score </label>
-                <input type="number"  name='book[rating]' min='0' max='10' value='<%= book.rating%>'>
-            </div>
-            <div class="field">
-                <label> Review by </label>
-                <input required name='book[by]' type="text" value='<%= book.by %>'>
+                <input type="number"  name='book[score]' min='0' max='10' value='<%= book.score%>'>
             </div>
         <div >
             <span>
