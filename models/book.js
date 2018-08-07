@@ -7,6 +7,7 @@ var bookSchema = new mongoose.Schema({
     image: String,
     yearPublish: String,
     review: String,
+    created: { type: Date, default: Date.now },
     score: {type:Number, max:10, min:0}
 });
 

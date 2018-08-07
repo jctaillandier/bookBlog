@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+<% include ../partials/header %>
 
 <div id='mainNewDiv' class='ui main text container segment'>
     <div class='ui huge header'> Edit <%= book.bTitle%> </div>
@@ -43,4 +43,4 @@
 <form id='deleteBtn' action='/books/<%=book._id %>?_method=DELETE' method='POST'>
     <button class='ui big button red'>Delete Post</button>
 </form>
-<% include ./partials/footer %>
+<% include ../partials/footer %>

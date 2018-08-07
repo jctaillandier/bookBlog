@@ -1,6 +1,9 @@
 var bodyparser = require('body-parser'),
     mongoose   = require('mongoose'),
     express    = require('express'),
+    passport     = require('passport'),
+    User         = require('./models/user'),
+    LocalStrategy= require('passport-local'),
     methodOverride = require('method-override');
 
 expressSanitizer = require('express-sanitizer')
@@ -30,8 +33,29 @@ var index = require('./routes/index'),
 //     score:8
 // })
 
+///////PASSPORT CONFIGURATION///////
+app.use(require('express-session')({
+    secret:'whatever else maybe for potato velociraptor',
+    resave: false,
+    saveUninitialized:false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+////////////////////////////////////////////
 
 ////////////////////////////////////
+
+
+//Middleware that will run for everysingle code
+// to send currentUser var all the time
+app.use(function(req,res,next){
+    res.locals.currentUser = req.user;
+    next();
+});
 
 app.use(index);
 app.use(books);

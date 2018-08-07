@@ -15,14 +15,14 @@ router.get('/books', function(req,res){
             console.log('error loading from DB...')
         }
         else{
-            res.render('index', {books:books});
+            res.render('books/index', {books:books});
         }
     });
      
 });
 // NEW route
-router.get('/books/new', function(req,res){
-    res.render('new');
+router.get('/books/new',isloggedIn, function(req,res){
+    res.render('books/new');
 });
 //CREATE route
 router.post('/books', function(req,res){
@@ -41,27 +41,27 @@ router.get('/books/:id', function(req,res){
     
     Book.findById(req.params.id, function(err, theBook){
         if(err){
-            res.redirect('/blogs')
+            res.redirect('/books')
         }
         else{
-            res.render('show', {book:theBook});
+            res.render('books/show', {book:theBook});
         }
     });
    
 });
 //EDIT route
-router.get('/books/:id/edit', function(req,res){
+router.get('/books/:id/edit',isloggedIn, function(req,res){
     Book.findById(req.params.id, function(err, foundBook){
         if(err){
             res.redirect('/');
         }
         else{
-            res.render('edit', {book: foundBook});
+            res.render('books/edit', {book: foundBook});
         }
     });
 });
 //UPDATE route
-router.put('/books/:id', function(req,res){
+router.put('/books/:id',isloggedIn, function(req,res){
     Book.findByIdAndUpdate(req.params.id, req.body.book ,function(err, foundBook){
         if(err){
             console.log(err);
@@ -72,8 +72,7 @@ router.put('/books/:id', function(req,res){
     });
 });
 // DELETE route
-router.delete('/books/:id', function(req,res){
-    //if (confirm('Are you sure you want delete this blog post?')) {
+router.delete('/books/:id',isloggedIn, function(req,res){
         
         Book.findByIdAndRemove(req.params.id, function(err, foundBook){
             if(err){
@@ -85,5 +84,19 @@ router.delete('/books/:id', function(req,res){
             }
         });
 });
+
+function isloggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        if(req.user.username == 'jc.taillandier'){
+            return next();
+        }
+        else{
+            res.redirect('/books')
+        }
+    }
+    else{
+        res.redirect('/books')
+    }
+}
 
 module.exports = router;

@@ -16,10 +16,15 @@
             <div class='header item'><i class="book icon big"></i> One Man <br> Book Club </div>
             <a href='/' class='item'> Home </a>
            <!-- Not sure whether I need other-->
-           <a href='/books/new' class='item right'> Add new Book Review </a> 
-           <a href='#' class='item right'> Login </a> 
-           <a href='#' class='item right'> Sign In </a> 
-           <a href='#' class='item right'> Log Out </a> 
+           <div class='right menu'>
+               <% if(currentUser){%>
+                <a href='/books/new' class='item right'> Add new Book Review </a> 
+                <a href='/logout' class='item right'> Log Out </a> 
+                <%}%> 
+                
+                <!-- <a href='/login' class='item right'> Login </a> 
+                <a href='/register' class='item right'> Sign In </a> -->
+            </div>
 
         </div>
     </div>

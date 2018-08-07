@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+<% include ../partials/header %>
 
 <div id='showMainDiv' class='ui main text container segment'>
     <div class='ui two column grid'>
@@ -21,10 +21,11 @@
         <div class='item'>
             <img class='ui centered small image rounded' src='<%= book.bImage %>'> <br>
             <div class='ui container content'>
-                    <div class='ui container'>
-                        <p><strong>Post created ...</strong></p> 
-                    </div>
                     <%= book.review %>
+            </div>
+            <hr>
+            <div class='ui container'>
+                <p><strong>Post created <%= book.created.toDateString()%></strong></p> 
             </div>
         </div><br>
         <p> <strong>
@@ -39,7 +40,9 @@
     </div>
     <br><hr><br>
     <a class='ui blue basic button' href='/books'> Go back </a>
-    <a class='ui blue basic button' href='/books/<%= book._id %>/edit'> Edit </a>
-
+    <%if(currentUser){ %>
+        <a class='ui blue basic button' href='/books/<%= book._id %>/edit'> Edit </a>
+    <%}%>
+        
 </div>
-<% include ./partials/footer %>
+<% include ../partials/footer %>
