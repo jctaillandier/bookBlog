@@ -13,6 +13,8 @@ router.get('/', function(req,res){
 //////////////AUTH ROUTES////////////////
 
 /*  ----- SignUp / register ------ */
+
+//Erased Register routes, as only with privilege is me
 // router.get('/register',function(req,res){
 //     res.render('register'); 
 // });

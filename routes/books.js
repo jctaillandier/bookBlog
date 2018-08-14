@@ -25,7 +25,7 @@ router.get('/books/new',isloggedIn, function(req,res){
     res.render('books/new');
 });
 //CREATE route
-router.post('/books', function(req,res){
+router.post('/books', isloggedIn, function(req,res){
     Book.create(req.body.book, function(err, newBook){
         if(err){
             console.log('error creating new book review');
