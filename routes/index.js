@@ -15,22 +15,22 @@ router.get('/', function(req,res){
 /*  ----- SignUp / register ------ */
 
 //Erased Register routes, as only with privilege is me
-router.get('/register',function(req,res){
-    res.render('register'); 
-});
-router.post('/register', function(req,res){
-    var newUser = new User({username:req.body.username});
-    //pass username, then password, then callback
-    User.register(newUser, req.body.password ,  function(err,user){
-        if(err){
-            console.log(err);
-            res.redirect('/register')
-        }
-        passport.authenticate('local')(req,res,function(){
-            res.redirect('/books');
-        });
-    });
-});
+// router.get('/register',function(req,res){
+//     res.render('register'); 
+// });
+// router.post('/register', function(req,res){
+//     var newUser = new User({username:req.body.username});
+//     //pass username, then password, then callback
+//     User.register(newUser, req.body.password ,  function(err,user){
+//         if(err){
+//             console.log(err);
+//             res.redirect('/register')
+//         }
+//         passport.authenticate('local')(req,res,function(){
+//             res.redirect('/books');
+//         });
+//     });
+// });
 
 
 /*  ----- Login ------ */
