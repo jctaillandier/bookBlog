@@ -10,7 +10,7 @@ var express = require('express'),
 router.get('/books', function(req,res){
     //passing reviewers in index.ejs
     
-    Book.find({}, function(err, books){
+    Book.find().sort({created: -1}).exec(function(err, books){
         if(err){
             console.log('error loading from DB...')
         }

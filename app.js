@@ -9,7 +9,7 @@ var bodyparser = require('body-parser'),
 expressSanitizer = require('express-sanitizer')
 app = express(); 
     
-var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+var url = process.env.DATABASEURL || "mongodb://localhost/book_club";
 mongoose.connect(url);
 
 
