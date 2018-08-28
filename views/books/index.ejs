@@ -18,7 +18,8 @@
                             </div>
                             <div class='description'>
                                 <h5>Review:</h5>
-                                <p><%= books.review.substr(0,150)%>...</p>
+                                <!-- Again '-' to allow HTML tag reading -->
+                                <p><%- books.review.substr(0,150)%>...</p>
                             </div>
                             <hr>
                             <div class='extra'>

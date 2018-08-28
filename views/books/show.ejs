@@ -21,7 +21,8 @@
         <div class='item'>
             <img class='ui centered small image rounded' src='<%= book.bImage %>'> <br>
             <div class='ui container content'>
-                    <%= book.review %>
+                <!--Dash instead of = reads HTML format tags-->
+                    <%- book.review %>
             </div>
             <hr>
             <div class='ui container'>

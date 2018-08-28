@@ -8,8 +8,8 @@ var express = require('express'),
 
 // INDEX route
 router.get('/books', function(req,res){
-    //passing reviewers in index.ejs
     
+    // makes sure they come up in order of creation (1 is for order)
     Book.find().sort({created: 1}).exec(function(err, books){
         if(err){
             console.log('error loading from DB...')
@@ -26,6 +26,9 @@ router.get('/books/new',isloggedIn, function(req,res){
 });
 //CREATE route
 router.post('/books', isloggedIn, function(req,res){
+    
+    req.body.book.review = req.sanitize(req.body.book.review);
+
     Book.create(req.body.book, function(err, newBook){
         if(err){
             console.log('error creating new book review');
@@ -77,10 +80,10 @@ router.delete('/books/:id',isloggedIn, function(req,res){
         Book.findByIdAndRemove(req.params.id, function(err, foundBook){
             if(err){
                 console.log('could not delete from DB...')
-                res.redirect('/')
+                res.redirect('/books')
             }
             else{
-                res.redirect('/');
+                res.redirect('/books');
             }
         });
 });
