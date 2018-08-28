@@ -65,6 +65,9 @@ router.get('/books/:id/edit',isloggedIn, function(req,res){
 });
 //UPDATE route
 router.put('/books/:id',isloggedIn, function(req,res){
+    
+    req.body.book.review = req.sanitize(req.body.book.review);
+    
     Book.findByIdAndUpdate(req.params.id, req.body.book ,function(err, foundBook){
         if(err){
             console.log(err);
