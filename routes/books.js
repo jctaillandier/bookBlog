@@ -15,9 +15,7 @@ router.get('/books', function(req,res){
     //Book.paginate({}, { limit: 10 }, function(err, result) {
     
         // makes sure they come up in order of creation (1 is for order)
-        Book.find({})
-        .skip((perPage * page) - perPage)
-        .limit(perPage).sort({created: 1}).exec(function(err, books){
+        Book.find({}).limit(10).sort({created: 1}).exec(function(err, books){
             if(err){
                 console.log('error loading from DB...')
             }
