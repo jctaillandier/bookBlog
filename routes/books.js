@@ -8,22 +8,32 @@ var express = require('express'),
 
 // INDEX route
 router.get('/books', function(req,res){
+    var perPage = 10
+    var page = req.params.page || 1
+
+    //10 per page using mongoose-paginate
+    //Book.paginate({}, { limit: 10 }, function(err, result) {
     
-    // makes sure they come up in order of creation (1 is for order)
-    Book.find().sort({created: 1}).exec(function(err, books){
-        if(err){
-            console.log('error loading from DB...')
-        }
-        else{
-            res.render('books/index', {books:books});
-        }
-    });
-     
+        // makes sure they come up in order of creation (1 is for order)
+        Book.find({})
+        .skip((perPage * page) - perPage)
+        .limit(perPage).sort({created: 1}).exec(function(err, books){
+            if(err){
+                console.log('error loading from DB...')
+            }
+            else{
+                res.render('books/index', {books:books});
+            }
+        }); 
+    //});
+    
 });
+
 // NEW route
-router.get('/books/new',isloggedIn, function(req,res){
+router.get('/books/new', isloggedIn, function(req,res){
     res.render('books/new');
 });
+
 //CREATE route
 router.post('/books', isloggedIn, function(req,res){
     
@@ -63,6 +73,7 @@ router.get('/books/:id/edit',isloggedIn, function(req,res){
         }
     });
 });
+
 //UPDATE route
 router.put('/books/:id',isloggedIn, function(req,res){
     
@@ -77,6 +88,7 @@ router.put('/books/:id',isloggedIn, function(req,res){
         }
     });
 });
+
 // DELETE route
 router.delete('/books/:id',isloggedIn, function(req,res){
         

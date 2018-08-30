@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 
 var bookSchema = new mongoose.Schema({
@@ -11,5 +12,6 @@ var bookSchema = new mongoose.Schema({
     score: {type:Number, max:10, min:0}
 });
 
+bookSchema.plugin(mongoosePaginate);
 var Book = mongoose.model('Book', bookSchema);
 module.exports = Book;
