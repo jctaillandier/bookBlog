@@ -34,9 +34,11 @@
             <% for(var i = 0 ; i < book.score ; i++){%>
             <i class="star icon"></i>
             <%}%>
-            <% for(var i = 0 ; i < (10-book.score) ; i++){%>
-                <i class="star outline icon"></i>
-            <%}%>
+            
+            <% if(book.score % 1 !== 0){ %>
+                <i class="star half icon"></i>
+                
+            <% } %>
         </strong></p>
     </div>
     <br><hr><br>
